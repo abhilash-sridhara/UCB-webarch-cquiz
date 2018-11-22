@@ -1,0 +1,75 @@
+.body{
+    background-color: #2e2e33;
+    text-align: center;
+    color: white;
+}
+
+.body h1,h2{
+    color: #00cc00;
+}
+.body h3{
+    color: #f59e1c;
+}
+.body strong{
+    color: rgb(241, 248, 143);
+}
+.main-article {
+    width: 80%;
+    align-self: center;
+    color: azure;    
+    text-align: left;
+    margin: auto;
+    border: 1px solid;
+    border-color: aliceblue;    
+    padding: 5px;
+    
+}
+.footer a{
+    color: aqua;
+    font-size: 20px;
+}
+ .header{
+    color: aqua;   
+    font-size: 20px;
+ }
+
+ a {
+    color: aqua;
+ }
+ a:visited{
+     color: aquamarine;
+ }
+
+ .message{
+     font-family: fantasy;
+     color: aliceblue;
+ }
+
+ .message-form{
+     color: aliceblue !important;
+     text-align: center !important;
+     padding: 5px;
+     margin:  2px;
+ }
+
+ .msg-text{
+     width: 40%;
+ }
+
+ .about-us{
+    width: 80%;
+    align-self: center;
+    color: azure;    
+    text-align: center;
+    margin: auto;
+    border: 1px solid;
+    border-color: aliceblue;    
+    padding: 5px;
+ }
+ .td{
+     color: aliceblue;
+ }
+ .table{
+     margin: auto;
+     align-self: auto;
+ }
