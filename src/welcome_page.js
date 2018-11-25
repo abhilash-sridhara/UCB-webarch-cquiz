@@ -44,8 +44,8 @@ class WelcomePage extends React.Component
                             <strong>Tip: The Username you enter appears in the leaderboard. So, please use caution while picking your Username</strong>
                         </p>
                         <br/>
-                        <input type="text" name="userName" required></input><br/>
-                        
+                        <input type="text" name="userName" required></input><br/><br/>
+
                         <button onClick={this.pageNav.bind(this,2)}>PLay Game</button>
                     </div>
                 </section>
