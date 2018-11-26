@@ -1,0 +1,5 @@
+class TileGen{
+
+}
+
+export {TileGen}
