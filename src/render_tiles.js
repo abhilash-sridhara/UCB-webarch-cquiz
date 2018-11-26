@@ -7,7 +7,7 @@ import TileGen from "./anu.js"
 
 // We will club the code of this with game_controller
 
-class RenderTiles extends React.Component,Click,ColorIt,TileGen
+class RenderTiles extends React.Component
 {
     constructor(props){
         // set all initialisation var here: E.g the list of all colors

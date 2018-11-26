@@ -23,9 +23,9 @@ class App extends React.Component {
   render() {
     if(this.state.pageId==1){
         return (
-                  
+
             <WelcomePage pageNav = {this.getUser.bind(this)} />
-           
+
           );
     }
     else if(this.state.pageId == 2){
@@ -45,8 +45,8 @@ class App extends React.Component {
             Sorry something went wrong !!!
         </div>
     );
-    
-      
+
+
  }
 }
 
