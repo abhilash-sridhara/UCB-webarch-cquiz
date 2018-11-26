@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {GameCtrl} from "./game_controller.js"
-import {RenderTiles} from "./render_tiles.js"
 import {WelcomePage} from "./welcome_page.js"
 class App extends React.Component {
   // This component contains the entirety of your application

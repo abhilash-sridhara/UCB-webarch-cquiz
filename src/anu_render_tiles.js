@@ -1,3 +1,6 @@
+// WORKING CODE. DO NOT touch
+// MOVE THIS TO render_tiles.js if render_tiles.js gets corrupted
+
 import React from "react";
 import ReactDOM from "react-dom";
 import Click from "./abhi.js"

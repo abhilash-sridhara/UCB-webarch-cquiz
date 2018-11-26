@@ -1,5 +1,0 @@
-class TileGen{
-
-}
-
-export {TileGen}

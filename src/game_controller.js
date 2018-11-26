@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {RenderTiles} from "./render_tiles.js"
 
 class GameCtrl extends React.Component
 {
@@ -14,11 +15,14 @@ class GameCtrl extends React.Component
     startGame(){
 
     }
+
     render(){
         return(
             <div>
                 Game begins now!!!!
+                <RenderTiles />
             </div>
+
         )
     }
 }
