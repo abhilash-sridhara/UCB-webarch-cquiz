@@ -16,14 +16,14 @@ class GameCtrl extends React.Component
 
     updateClick(res){
         if(res==true){
+            console.log('correct ans');
             this.setState((state)=>{return{score:state.score+1 , seq:state.seq+1}})
         }
         else{
+            console.log('incorrect');
             this.setState((state)=>{return{score:state.score , seq:state.seq+1}})
         }
-        console.log('your score '+this.state.score);
-        //alert('your score is '+this.state.score);
-        console.log('your seq '+this.state.seq);
+        
     }
 
     // This function should handle all the control statements for game flow
@@ -32,7 +32,9 @@ class GameCtrl extends React.Component
     }
 
     render(){
-        console.log('reload level');
+        console.log('your score '+this.state.score);
+        //alert('your score is '+this.state.score);
+        console.log('your seq '+this.state.seq);        
         return(
             <div>
                 Game begins now!!!!

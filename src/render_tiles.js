@@ -32,10 +32,15 @@ class RenderTiles extends React.Component
     this.unq_id = Math.floor(Math.random() * 16);         
   }
   componentDidMount(){
-    this.unq_id = Math.floor(Math.random() * 16);  
-    console.log('did mount unq'+this.unq_id);  
+    console.log('did mount unq'+this.unq_id);
+  }
+  componentDidUpdate(){
+    this.unq_id = Math.floor(Math.random() * 16);
+    console.log('did update unq'+this.unq_id);        
   }
   getClicked(clickedId){
+    console.log('correct tile '+this.unq_id);
+    console.log(' you clicked on '+clickedId);
     if(clickedId==this.unq_id){
       this.props.clickHandle(true);
     }
@@ -48,10 +53,7 @@ class RenderTiles extends React.Component
     return <Square id={i} getClicked={this.getClicked}/>;
   }
   render() {
-    const status = 'Game begins now!';
-    console.log('rerender tiles'); 
-    this.unq_id = Math.floor(Math.random() * 16);  
-    console.log('render unq '+this.unq_id);     
+    const status = 'Game begins now!';      
     return (
       <div>
         <br/>
