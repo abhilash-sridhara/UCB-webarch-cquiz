@@ -1,16 +1,47 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+class InputForm extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={username:this.props.userName};
+        this.handleSubmit =this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.getUser = this.props.getUser;
+    }
+    handleChange(event) {
+        //console.log(event);
+        this.setState({username: event.target.value});
+    }
+    
+    handleSubmit(event) {    
+    event.preventDefault();
+    this.getUser(this.state.username);
+    }
+    render(){
+        return(
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="userName" value={this.state.username} onChange={this.handleChange} required /><br/><br/>                   
+                     <input type="submit" value="Play Now !"/>                                      
+                </form>
+            </div>
+        )
+    }
+}
+
 class WelcomePage extends React.Component
 {
     constructor(props){
-        super(props);
-        this.pageNav = this.props.pageNav;
-        console.log(props);
+        super(props);                
+        this.getUser = this.props.getUser;        
+        //console.log(props);
     }
-
+    
     render(){
+        
         return(
+            
             <div className='.body'>
                 <div>
                     <article>
@@ -43,10 +74,8 @@ class WelcomePage extends React.Component
                         <p>
                             <strong>Tip: The Username you enter appears in the leaderboard. So, please use caution while picking your Username</strong>
                         </p>
-                        <br/>
-                        <input type="text" name="userName" required></input><br/><br/>
-
-                        <button onClick={this.pageNav.bind(this,2)}>PLay Game</button>
+                        <br/>                        
+                        <InputForm userName='' getUser={this.getUser}/>
                     </div>
                 </section>
                 </div>

@@ -15,7 +15,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert(this.id)}>
+      <button className="square" onClick={this.props.getClicked.bind(this,this.id)}>
         {/* TODO */}
       </button>
     );
@@ -24,11 +24,34 @@ class Square extends React.Component {
 
 class RenderTiles extends React.Component
 {
+  constructor(props){
+    super(props);
+    console.log(props);
+    this.seq = props.seq;
+    this.getClicked = this.getClicked.bind(this);
+    this.unq_id = Math.floor(Math.random() * 16);         
+  }
+  componentDidMount(){
+    this.unq_id = Math.floor(Math.random() * 16);  
+    console.log('did mount unq'+this.unq_id);  
+  }
+  getClicked(clickedId){
+    if(clickedId==this.unq_id){
+      this.props.clickHandle(true);
+    }
+    else{
+      this.props.clickHandle(false);
+    }
+  }
+
   renderSquare(i) {
-    return <Square id={i}/>;
+    return <Square id={i} getClicked={this.getClicked}/>;
   }
   render() {
     const status = 'Game begins now!';
+    console.log('rerender tiles'); 
+    this.unq_id = Math.floor(Math.random() * 16);  
+    console.log('render unq '+this.unq_id);     
     return (
       <div>
         <br/>

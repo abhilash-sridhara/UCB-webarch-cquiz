@@ -87,3 +87,27 @@
 .square:focus {
   outline: none;
 }
+#root{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+  min-height: 300px;
+}
+#game-area{
+    width: 69%;
+    display: block;   
+    float: left;
+
+}
+#timer-area{
+    width: 15%;
+    display: block;
+    float: left;
+}
+#left-column{
+    width: 12%;
+    display: block;
+    float: left;
+    min-height: 10px;
+}
