@@ -20,11 +20,15 @@ class InputForm extends React.Component{
     }
     render(){
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="form">
+            <form onSubmit={this.handleSubmit}>
                     <input type="text" name="userName" value={this.state.username} onChange={this.handleChange} required /><br/><br/>                   
                      <input type="submit" value="Play Now !"/>                                      
-                </form>
+                </form><br/>
+            <div>
+                <img src="./images/RubixCube.gif" alt="Doc face"  height="200px" width="auto"/>
+            </div>
+                
             </div>
         )
     }
@@ -56,22 +60,23 @@ class WelcomePage extends React.Component
                             Instructions
                         </h2>
                     </div>
-                    <br/>
                     <div>
                         <p>
                         Cquiz is a game that tests your observation skills and hand to eye co-ordination. You will be presented with n number of tiles. 
-                        One of the tile has a different shade than all others. You click on the tlies to submit your answer. There are a total of 25 rounds
-                        with 4 levels of difficulty. Selecting the correct tile getts harder as the levels increase but so does the score. Once you begin, 
-                        you have 2 minutes before the timer runs out and the game is over. Try to beat other players from the leaderboard.
+                        One of the tile has a different shade than all others. You click on the tlies to submit your answer. There are a total of <strong>25 rounds </strong> 
+                         and <strong>4 </strong> levels of difficulty. Selecting the correct tile getts harder as the levels increase but so does the score.
+                         </p>
+                         <p> Once you begin, 
+                        you have <strong>2 minutes </strong> before the timer runs out and the game is over. Try to beat other players from the leaderboard.
                         </p>
 
                         <p>
                             Remember, the score is calculated based on your correct answers, the difficulty level and time. It is up to you to come up with 
                             the best strategy to get a high-score worthy of the leaderboard. So what are you waiting for!!
-                            enter your <strong>Username</strong> and click play to start the game.
+                            enter your <strong>Username</strong> and click PLAY to start the game.
                         </p>
 
-                        <p>
+                        <p class ="tips">
                             <strong>Tip: The Username you enter appears in the leaderboard. So, please use caution while picking your Username</strong>
                         </p>
                         <br/>                        

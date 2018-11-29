@@ -1,18 +1,26 @@
 .body{
-    background-color: #2e2e33;
-    text-align: center;
-    color: white;
+    background-color: fbfbfb;
+    text-align: justify;
+    color: blck;
 }
 
 .body h1,h2{
-    color: #00cc00;
+    color: black;
+    text-align: center;
+}
+
+.body h2{
+    text-align: left;
 }
 .body h3{
     color: #f59e1c;
+    text-align: center;
 }
 .body strong{
-    color: rgb(241, 248, 143);
+    color: blue;
 }
+
+
 .main-article {
     width: 80%;
     align-self: center;
@@ -110,4 +118,7 @@
     display: block;
     float: left;
     min-height: 10px;
+}
+.form{
+    text-align: center;
 }
