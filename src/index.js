@@ -41,6 +41,7 @@ class App extends React.Component {
       this.setState((state) =>({userName:username, pageId: 2}))
       //console.log(username);
   }
+
   render() {
     if(this.state.pageId==1){
         return (
@@ -58,7 +59,8 @@ class App extends React.Component {
     else if(this.state.navPage == 3){
         return(
             <div>
-                Summary page work in progress
+            <GameCtrl score = {this.state.score.bind(this)}/>
+            {/* To do */}
             </div>
         );
     }
