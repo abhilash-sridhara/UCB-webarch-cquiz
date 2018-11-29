@@ -6,6 +6,24 @@ import ColourIt from "./alyssa.js"
 
 
 // We will club the code of this with game_controller
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds + ' Minutes';
+
+        if (--timer < 0) {
+            timer = 0;
+            display.textContent ="Time Over!"
+        }
+    }, 1000);
+}
+
 class Square extends React.Component {
   constructor(props)
   {
@@ -22,6 +40,8 @@ class Square extends React.Component {
   }
 }
 
+
+
 class RenderTiles extends React.Component
 {
   constructor(props){
@@ -29,14 +49,14 @@ class RenderTiles extends React.Component
     console.log(props);
     this.seq = props.seq;
     this.getClicked = this.getClicked.bind(this);
-    this.unq_id = Math.floor(Math.random() * 16);         
+    this.unq_id = Math.floor(Math.random() * 16);
   }
   componentDidMount(){
     console.log('did mount unq'+this.unq_id);
   }
   componentDidUpdate(){
     this.unq_id = Math.floor(Math.random() * 16);
-    console.log('did update unq'+this.unq_id);        
+    console.log('did update unq'+this.unq_id);
   }
   getClicked(clickedId){
     console.log('correct tile '+this.unq_id);
@@ -53,7 +73,10 @@ class RenderTiles extends React.Component
     return <Square id={i} getClicked={this.getClicked}/>;
   }
   render() {
-    const status = 'Game begins now!';      
+    const status = 'Game on!';
+    var twoMinutes = 60 * 2,
+      display = document.querySelector('#timer-area');
+    startTimer(twoMinutes, display);
     return (
       <div>
         <br/>
@@ -86,5 +109,6 @@ class RenderTiles extends React.Component
   }
 
 }
+
 
 export{RenderTiles};
