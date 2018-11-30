@@ -62,12 +62,12 @@ class WelcomePage extends React.Component
                     </div>
                     <div>
                         <p>
-                        Cquiz is a game that tests your observation skills and hand to eye co-ordination. You will be presented with n number of tiles.
+                        Cquiz is a game that tests your observation skills and hand to eye co-ordination. You will be presented with <strong> 16 </strong> tiles.
                         One of the tile has a different shade than all others. Click on the tlies to submit your answer. There are a total of <strong>25 rounds </strong>
-                         and <strong>4 </strong> levels of difficulty. Selecting the correct tile getts harder as the levels increase but so does the score.
+                         and <strong>4 </strong> levels of difficulty. Selecting the correct tile gets harder as the levels increase but so does the score.
                          </p>
                          <p> Once you begin,
-                        you have <strong>2 minutes </strong> before the timer runs out and the game is over. Try to beat other players from the leaderboard.
+                        you have <strong>2 minutes </strong> before the timer runs out and the game is over.
                         </p>
 
                         <p>
