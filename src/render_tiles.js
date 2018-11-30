@@ -1,28 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Click from "./abhi.js"
-import ColourIt from "./alyssa.js"
+// import Click from "./abhi.js"
+// import ColourIt from "./alyssa.js"
 //import TileGen from "./anu.js"
+//import startTimer from './script.js'
+
+
 
 
 // We will club the code of this with game_controller
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds + ' Minutes';
-
-        if (--timer < 0) {
-            timer = 0;
-            display.textContent ="Time Over!"
-        }
-    }, 1000);
-}
 
 class Square extends React.Component {
   constructor(props)
@@ -33,7 +19,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={this.props.getClicked.bind(this,this.id)}>
+      <button id={this.id} className="square" onClick={this.props.getClicked.bind(this,this.id)}>
         {/* TODO */}
       </button>
     );
@@ -50,17 +36,101 @@ class RenderTiles extends React.Component
     this.seq = props.seq;
     this.getClicked = this.getClicked.bind(this);
     this.unq_id = Math.floor(Math.random() * 16);
+    this.colorList = [ 
+      [347,100,80],
+      [300,90,35],
+      [217,100,81]
+      [267,73,40],
+      [12,95,83],
+      [204,59,51],
+      [44,73,96],
+      [249,69,24],
+      [343,71,85],
+      [215,57,68],
+      [249,40,52],
+      [355,28,90],
+      [200,11,83],
+      [173,30,87],
+      [200,30,83],
+      [34,94,99],
+      [30,40,98],
+      [194,64,95],
+      [145,46,81],
+      [271,64,88],
+      [146,78,59],
+      ]; 
   }
+  shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+  colorTiles() {
+    console.log(this.colorList[this.seq -1]);
+    console.log(this.seq);
+    let newColor =  'hsl('+String(this.colorList[this.seq-1][0])+','+String(this.colorList[this.seq-1][1])+'% ,'+String(this.colorList[this.seq-1][2])+'%)';
+    let tiles = document.getElementsByClassName("square");
+    console.log(newColor);
+    for (var i = 0; i < tiles.length; i++) {
+      //console.log(i);
+      tiles[i].style.backgroundColor = newColor;
+      tiles[i].style.color = newColor;
+      //tiles[i].innerHTML='ch';
+      //console.log(tiles[i].value);
+      }
+  }
+  changeSaturation(id) {
+
+    let multiplier;
+    let newColor;
+  
+    //figure out multipler from sequence
+    if (this.seq < 5) {
+      multiplier = 0.8;
+    }
+    else if (this.seq >= 5 && this.seq < 11) {
+      multiplier = 0.85;
+    }
+    else if (this.seq > 15 && this.seq < 21) {
+      multiplier = 0.9; 
+    }
+    else {
+      multiplier = 0.95;
+    }
+  
+    //new color based on base color and multipler 
+    newColor = 'hsl('+this.colorList[this.seq-1][0]+','+String(this.colorList[this.seq-1][1]*multiplier)+'% , '+String(this.colorList[this.seq-1][2])+'%)';
+    
+    console.log('unq col '+newColor);
+    document.getElementById(id).style.backgroundColor = newColor ;
+    document.getElementById(id).style.color = newColor ;
+  }
+  
+  
   componentDidMount(){
+    this.colorList = this.shuffleArray(this.colorList).filter(function (el) {
+      return el != null;});
+    console.log(this.colorList);
     console.log('did mount unq'+this.unq_id);
+    this.colorTiles();
+    this.changeSaturation(this.unq_id);
   }
+
   componentDidUpdate(){
+    this.colorTiles();
     this.unq_id = Math.floor(Math.random() * 16);
     console.log('did update unq'+this.unq_id);
+    this.changeSaturation(this.unq_id);
   }
   getClicked(clickedId){
     console.log('correct tile '+this.unq_id);
     console.log(' you clicked on '+clickedId);
+    this.seq+=1;
     if(clickedId==this.unq_id){
       this.props.clickHandle(true);
     }
@@ -74,9 +144,6 @@ class RenderTiles extends React.Component
   }
   render() {
     const status = 'Game on!';
-    var twoMinutes = 60 * 2,
-      display = document.querySelector('#timer-area');
-    startTimer(twoMinutes, display);
     return (
       <div>
         <br/>

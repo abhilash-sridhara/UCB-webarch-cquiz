@@ -76,7 +76,7 @@ class WelcomePage extends React.Component
                             enter your <strong>Username</strong> and click "PLAY" to start the game.
                         </p>
 
-                        <p class ="tips">
+                        <p className ="tips">
                             <strong>Tip: The Username you enter appears in the leaderboard. So, please use caution while picking your Username</strong>
                         </p>
                         <br/>

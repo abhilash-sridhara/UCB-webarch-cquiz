@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {GameCtrl} from "./game_controller.js"
 import {WelcomePage} from "./welcome_page.js"
+import {Display} from "./leaderboard.js"
 class Timer extends React.Component{
     constructor(props){
         super(props);
@@ -38,10 +39,12 @@ class App extends React.Component {
     // this.child3.pageNav(pageId);
   }
   getUser(username){
-      this.setState((state) =>({userName:username, pageId: 2}))
+      this.setState((state) =>({userName:username, pageId: 2}));
       //console.log(username);
   }
-
+  getScore(scr){
+      this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});
+  }
   render() {
     if(this.state.pageId==1){
         return (
@@ -53,13 +56,13 @@ class App extends React.Component {
     else if(this.state.pageId == 2){
         //console.log(this.state.userName)
         return(
-            <GameCtrl pageNav = {this.pageNav.bind(this)} username={this.state.username}/>
+            <GameCtrl getScore = {this.getScore.bind(this)} username={this.state.username}/>
         );
     }
-    else if(this.state.navPage == 3){
+    else if(this.state.pageId == 3){
         return(
             <div>
-            <GameCtrl score = {this.state.score.bind(this)}/>
+            <Display userName = {this.state.userName} score = {this.state.score}/>
             {/* To do */}
             </div>
         );

@@ -54,10 +54,10 @@ class ColourIt extends React.Component {
   var newColor;
 
   //figure out multipler from sequence
-  if (seq < 6) {
+  if (seq < 5) {
     multiplier = 0.8;
   }
-  else if (seq > 5 && seq < 11) {
+  else if (seq >= 5 && seq < 11) {
     multiplier = 0.85;
   }
   else if (seq > 15 && seq < 21) {
@@ -80,7 +80,7 @@ class ColourIt extends React.Component {
   }
 
   render() {
-    return (
+    return (<diV></diV>
     );
   }
 }
