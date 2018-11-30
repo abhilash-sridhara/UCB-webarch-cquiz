@@ -50,7 +50,7 @@ class WelcomePage extends React.Component
                 <div>
                     <article>
                     <h1>
-                        Welcome to cquiz
+                        Welcome to Cquiz
                     </h1>
 
                 </article>
@@ -63,7 +63,7 @@ class WelcomePage extends React.Component
                     <div>
                         <p>
                         Cquiz is a game that tests your observation skills and hand to eye co-ordination. You will be presented with <strong> 16 </strong> tiles.
-                        One of the tile has a different shade than all others. Click on the tlies to submit your answer. There are a total of <strong>25 rounds </strong>
+                        One of the tile has a different shade than all others. Click on the tlies to submit your answer. There are a total of <strong>20 rounds </strong>
                          and <strong>4 </strong> levels of difficulty. Selecting the correct tile gets harder as the levels increase but so does the score.
                          </p>
                          <p> Once you begin,
