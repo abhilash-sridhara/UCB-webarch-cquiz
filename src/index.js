@@ -3,6 +3,14 @@ import ReactDOM from "react-dom";
 import {GameCtrl} from "./game_controller.js"
 import {WelcomePage} from "./welcome_page.js"
 import {Display} from "./leaderboard.js"
+
+// let  timeOut =() =>{
+//     let display = document.querySelector('#timer-area');
+//     setInterval(function () {
+//         display.textContent = '';
+//         }, 10);        
+// }
+
 class Timer extends React.Component{
     constructor(props){
         super(props);
@@ -43,7 +51,7 @@ class App extends React.Component {
       //console.log(username);
   }
   getScore(scr){
-      this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});
+      this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});      
   }
   render() {
     if(this.state.pageId==1){

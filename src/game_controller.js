@@ -2,28 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {RenderTiles} from "./render_tiles.js"
 
-let  startTimer = (duration, display) => {
+let  startTimer = (duration, display,obj) => {
     var timer = duration, minutes, seconds;
+    var ob = obj;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
   
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-  
-        display.textContent = minutes + ":" + seconds + ' Minutes';
-  
+        if(ob.gameState){
+            display.textContent =  '' + minutes + ":" + seconds ;
+
         if (--timer < 0) {
             timer = 0;
             display.textContent = ''
         }
+    }
+        else{display.textContent = ''}
+        
+        
     }, 1000);
   }
-let stopTimer = (display) =>{
-    setInterval(function () {
-        display.textContent = '';
-        }, 10);
-}
+
+
+
 class GameCtrl extends React.Component
 {
     constructor(props)
@@ -33,8 +36,11 @@ class GameCtrl extends React.Component
         this.getScore = this.props.getScore;
         this.state = {score:0, seq:1};
         this.updateClick = this.updateClick.bind(this);
+        this.gameState = true;
 
     }
+
+   
 
     updateClick(res){
         if(this.state.seq < 19) {
@@ -46,14 +52,13 @@ class GameCtrl extends React.Component
                 console.log('incorrect');
                 this.setState((state)=>{return{score:state.score , seq:state.seq+1}});
             }
-        } else {
-            let display = document.querySelector('#timer-area');
-            stopTimer(display);
+        } else { 
+            this.gameState = false;                       
             this.getScore(this.state.score);
         }
     }
 
-    render(){
+    render(){        
         console.log('your score '+this.state.score);
         //alert('your score is '+this.state.score);
         console.log('your seq '+this.state.seq);
@@ -65,10 +70,19 @@ class GameCtrl extends React.Component
 
         )
     }
+    gtScore(){
+        console.log('gt score '+this.state.score);
+        return this.state.score;
+    }
     componentDidMount(){
         var twoMinutes = 60 * 2,
-        display = document.querySelector('#timer-area');
-      startTimer(twoMinutes, display);
+        display = document.querySelector('#timer-area');      
+      startTimer(twoMinutes, display,this); 
+      setTimeout(function(obj){
+        obj.gameState = false;
+        obj.getScore(obj.state.score);
+            
+      }, 1000*60*2,this);     
 
     }
 }
