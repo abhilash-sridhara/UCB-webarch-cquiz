@@ -43,22 +43,50 @@ class RenderTiles extends React.Component
       [267,73,40],
       [12,95,83],
       [204,59,51],
-      [44,73,96],
       [249,69,24],
       [343,71,85],
       [215,57,68],
       [249,40,52],
-      [355,28,90],
-      [200,11,83],
-      [173,30,87],
-      [200,30,83],
-      [34,94,99],
-      [30,40,98],
-      [194,64,95],
-      [145,46,81],
-      [271,64,88],
+      [173,30,87],//light
+      [145,46,81],//light
+      [271,64,88], //light
       [146,78,59],
-      ]; 
+      [246,80,64],
+      [0,63,92], //light
+      [328,87,80], //light
+      [176,73,61],
+      [14,95,91],
+      [266,94,85]
+      ];
+
+    this.colorListLight = [
+      [173,30,87],
+      [145,46,81],
+      [0,63,92],
+      [271,64,88],
+      [14,95,91],
+    ];
+
+    this.colorListDark = [
+      [347,100,80],
+      [300,90,35],
+      [217,100,81]
+      [267,73,40],
+      [12,95,83],
+      [204,59,51],
+      [249,69,24],
+      [343,71,85],
+      [215,57,68],
+      [249,40,52],
+      [146,78,59],
+      [246,80,64],
+      [328,87,80],
+      [176,73,61],
+      [14,95,91],
+      [266,94,85]
+    ];
+
+
   }
   shuffleArray(array) {
     let i = array.length - 1;
@@ -71,9 +99,18 @@ class RenderTiles extends React.Component
     return array;
   }
   colorTiles() {
-    console.log(this.colorList[this.seq -1]);
+    console.log(this.colorListDark[this.seq -1]);
     console.log(this.seq);
-    let newColor =  'hsl('+String(this.colorList[this.seq-1][0])+','+String(this.colorList[this.seq-1][1])+'% ,'+String(this.colorList[this.seq-1][2])+'%)';
+    let newColor;
+    newColor = 'hsl('+String(this.colorList[this.seq-1][0])+','+String(this.colorList[this.seq-1][1])+'% ,'+String(this.colorList[this.seq-1][2])+'%)';
+    
+    // if (this.seq < 16) {
+    // newColor = 'hsl('+String(this.colorListDark[this.seq-1][0])+','+String(this.colorListDark[this.seq-1][1])+'% ,'+String(this.colorListDark[this.seq-1][2])+'%)';
+    // }
+    // else {
+    // newColor = 'hsl('+String(this.colorListLight[this.seq-1][0])+','+String(this.colorListLight[this.seq-1][1])+'% ,'+String(this.colorListLight[this.seq-1][2])+'%)';
+    // }
+    
     let tiles = document.getElementsByClassName("square");
     console.log(newColor);
     for (var i = 0; i < tiles.length; i++) {
@@ -91,22 +128,30 @@ class RenderTiles extends React.Component
   
     //figure out multipler from sequence
     if (this.seq < 5) {
-      multiplier = 0.8;
+      multiplier = 0.6;
     }
     else if (this.seq >= 5 && this.seq < 11) {
-      multiplier = 0.85;
+      multiplier = 0.7;
     }
-    else if (this.seq > 15 && this.seq < 21) {
-      multiplier = 0.9; 
+    else if (this.seq > 10 && this.seq < 16) {
+      multiplier = 0.75; 
     }
     else {
-      multiplier = 0.95;
+      multiplier = 0.8;
     }
   
     //new color based on base color and multipler 
     newColor = 'hsl('+this.colorList[this.seq-1][0]+','+String(this.colorList[this.seq-1][1]*multiplier)+'% , '+String(this.colorList[this.seq-1][2])+'%)';
     
-    console.log('unq col '+newColor);
+    // if (this.seq < 16) {
+    // newColor = 'hsl('+this.colorListDark[this.seq-1][0]+','+String(this.colorListDark[this.seq-1][1]*multiplier)+'% , '+String(this.colorListDark[this.seq-1][2])+'%)';
+    // }  
+
+    // else {
+    // newColor = 'hsl('+this.colorListLight[this.seq-1][0]+','+String(this.colorListLight[this.seq-1][1]*multiplier)+'% , '+String(this.colorListLight[this.seq-1][2])+'%)';
+    // }
+
+    console.log('unq col '+newColor + multiplier);
     document.getElementById(id).style.backgroundColor = newColor ;
     document.getElementById(id).style.color = newColor ;
   }
@@ -115,6 +160,10 @@ class RenderTiles extends React.Component
   componentDidMount(){
     this.colorList = this.shuffleArray(this.colorList).filter(function (el) {
       return el != null;});
+    // this.colorListDark = this.shuffleArray(this.colorListDark).filter(function (el) {
+    //   return el != null;});
+    // this.colorListLight = this.shuffleArray(this.colorListLight).filter(function (el) {
+    //   return el != null;});
     console.log(this.colorList);
     console.log('did mount unq'+this.unq_id);
     this.colorTiles();
