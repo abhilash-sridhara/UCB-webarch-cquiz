@@ -8,7 +8,7 @@ class Display extends React.Component{
     render(){
         return(
             <div className=".body">
-                <h1>Congradulations {this.props.userName} !!!!</h1>
+                <h1>congratulations {this.props.userName} !!!!</h1>
                 <h2> You Scored {this.props.score}</h2>
             </div>
         )
