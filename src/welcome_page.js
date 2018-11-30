@@ -73,7 +73,7 @@ class WelcomePage extends React.Component
                         <p>
                             Remember, the score is calculated based on your correct answers, the difficulty level and time. It is up to you to come up with
                             the best strategy to get a high-score worthy of the leaderboard. So what are you waiting for!!
-                            enter your <strong>Username</strong> and click "PLAY" to start the game.
+                            enter your <strong>Username</strong> and click "Play now" to start the game.
                         </p>
 
                         <p className ="tips">
