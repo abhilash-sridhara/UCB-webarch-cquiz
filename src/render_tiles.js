@@ -99,17 +99,21 @@ class RenderTiles extends React.Component
     return array;
   }
   colorTiles() {
-    console.log(this.colorListDark[this.seq -1]);
+    //console.log(this.colorListDark[this.seq -1]);
     console.log(this.seq);
     let newColor;
-    newColor = 'hsl('+String(this.colorList[this.seq-1][0])+','+String(this.colorList[this.seq-1][1])+'% ,'+String(this.colorList[this.seq-1][2])+'%)';
+    this.colorListDark = this.colorListDark.filter(function (el) {
+      return el != null;});
+      this.colorListLight = this.colorListLight.filter(function (el) {
+        return el != null;});
+    //newColor = 'hsl('+String(this.colorList[this.seq-1][0])+','+String(this.colorList[this.seq-1][1])+'% ,'+String(this.colorList[this.seq-1][2])+'%)';
     
-    // if (this.seq < 16) {
-    // newColor = 'hsl('+String(this.colorListDark[this.seq-1][0])+','+String(this.colorListDark[this.seq-1][1])+'% ,'+String(this.colorListDark[this.seq-1][2])+'%)';
-    // }
-    // else {
-    // newColor = 'hsl('+String(this.colorListLight[this.seq-1][0])+','+String(this.colorListLight[this.seq-1][1])+'% ,'+String(this.colorListLight[this.seq-1][2])+'%)';
-    // }
+    if (this.seq < 15) {
+    newColor = 'hsl('+String(this.colorListDark[this.seq-1][0])+','+String(this.colorListDark[this.seq-1][1])+'% ,'+String(this.colorListDark[this.seq-1][2])+'%)';
+    }
+    else {
+    newColor = 'hsl('+String(this.colorListLight[this.seq-14][0])+','+String(this.colorListLight[this.seq-14][1])+'% ,'+String(this.colorListLight[this.seq-14][2])+'%)';
+    }
     
     let tiles = document.getElementsByClassName("square");
     console.log(newColor);
@@ -141,15 +145,15 @@ class RenderTiles extends React.Component
     }
   
     //new color based on base color and multipler 
-    newColor = 'hsl('+this.colorList[this.seq-1][0]+','+String(this.colorList[this.seq-1][1]*multiplier)+'% , '+String(this.colorList[this.seq-1][2])+'%)';
+    //newColor = 'hsl('+this.colorList[this.seq-1][0]+','+String(this.colorList[this.seq-1][1]*multiplier)+'% , '+String(this.colorList[this.seq-1][2])+'%)';
     
-    // if (this.seq < 16) {
-    // newColor = 'hsl('+this.colorListDark[this.seq-1][0]+','+String(this.colorListDark[this.seq-1][1]*multiplier)+'% , '+String(this.colorListDark[this.seq-1][2])+'%)';
-    // }  
+    if (this.seq < 15) {
+    newColor = 'hsl('+this.colorListDark[this.seq-1][0]+','+String(this.colorListDark[this.seq-1][1]*multiplier)+'% , '+String(this.colorListDark[this.seq-1][2])+'%)';
+    }  
 
-    // else {
-    // newColor = 'hsl('+this.colorListLight[this.seq-1][0]+','+String(this.colorListLight[this.seq-1][1]*multiplier)+'% , '+String(this.colorListLight[this.seq-1][2])+'%)';
-    // }
+    else {
+    newColor = 'hsl('+this.colorListLight[this.seq-14][0]+','+String(this.colorListLight[this.seq-14][1]*multiplier)+'% , '+String(this.colorListLight[this.seq-14][2])+'%)';
+    }
 
     console.log('unq col '+newColor + multiplier);
     document.getElementById(id).style.backgroundColor = newColor ;
