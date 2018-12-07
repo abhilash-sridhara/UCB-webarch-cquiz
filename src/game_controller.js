@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {RenderTiles} from "./render_tiles.js"
 var intl;
+var timer;
 let  startTimer = (duration, display,obj) => {
-    var timer = duration, minutes, seconds;
+    let minutes;
+    let seconds;
+    timer = duration;
     var ob = obj;
     intl = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -56,8 +59,9 @@ class GameCtrl extends React.Component
                 this.setState((state)=>{return{score:state.score , seq:state.seq+1}});
             }
         } else { 
-            this.gameState = false;                       
-            this.getScore(this.state.score);
+            this.gameState = false;
+            //console.log('scoring timer'+String(timer));
+            this.getScore(this.state.score*(Math.log10(timer+1)).toFixed(2));
             stopTimer();
         }
     }
@@ -86,7 +90,7 @@ class GameCtrl extends React.Component
         obj.gameState = false;
         obj.getScore(obj.state.score);
             
-      }, 1000*60*2,this);     
+      }, 1000*60*2-1,this);     
 
     }
 }
