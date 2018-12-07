@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {GameCtrl} from "./game_controller.js"
 import {WelcomePage} from "./welcome_page.js"
 import {Display} from "./leaderboard.js"
+import firebase from './firebase.js'
 
 // let  timeOut =() =>{
 //     let display = document.querySelector('#timer-area');
@@ -38,6 +39,7 @@ class App extends React.Component {
     this.state = {pageId : this.props.pageId};
     this.pageNav = this.pageNav.bind(this);
     this.getUser = this.getUser.bind(this);
+    this.userScore = 0;
   }
   pageNav(pageid){
    // console.log('App '+pageId);
@@ -51,12 +53,25 @@ class App extends React.Component {
       //console.log(username);
   }
   getScore(scr){
+    const rsvpRef = firebase.database().ref('scores');
+    rsvpRef.orderByKey().equalTo(this.state.userName).once('value').then((snapshot)=>{
+        let c_arr=snapshot.val();
+        console.log('c_arr',c_arr)
+        if(c_arr){
+            console.log(c_arr[this.state.userName]);
+            this.userScore = c_arr[this.state.userName].score;
+        }
+            
+    }).then(()=>{
+        if(scr > this.userScore || this.userScore == 0){
+            rsvpRef.child(this.state.userName).set({'name':this.state.userName,'score':scr});
+        }
+    })
       this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});      
   }
   render() {
     if(this.state.pageId==1){
         return (
-
             <WelcomePage getUser = {this.getUser.bind(this)} />
 
           );
@@ -68,6 +83,7 @@ class App extends React.Component {
         );
     }
     else if(this.state.pageId == 3){
+
         return(
             <div>
             <Display userName = {this.state.userName} score = {this.state.score}/>

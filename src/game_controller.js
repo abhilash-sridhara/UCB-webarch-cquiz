@@ -87,8 +87,10 @@ class GameCtrl extends React.Component
         display = document.querySelector('#timer-area');      
       startTimer(twoMinutes, display,this); 
       setTimeout(function(obj){
-        obj.gameState = false;
-        obj.getScore(obj.state.score);
+        if(this.gameState){
+            obj.getScore(obj.state.score);
+        }
+        
             
       }, 1000*60*2-1,this);     
 
