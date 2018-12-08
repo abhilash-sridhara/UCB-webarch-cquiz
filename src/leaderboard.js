@@ -8,19 +8,15 @@ class LeaderBoardItem extends React.Component {
 
   render() {
     return (
-    // <table>
-    //   <tr>
-    //     <th>Username</th>
-    //     <th>Score</th>
-    //   </tr>
-    //   <tr>
-    //     <td>{this.props.name}</td>
-    //     <td>{this.props.score}</td>
-    //   </tr>
+    // 
+      <tr>
+        <td>{this.props.name}</td>
+        <td>{this.props.score}</td>
+      </tr>
     // </table>
-      <li>
-        {this.props.name}: {this.props.score}
-      </li>
+      // <li>
+      //   {this.props.name}: {this.props.score}
+      // </li>
    
     );
   }
@@ -74,9 +70,13 @@ class Display extends React.Component{
                 <br></br>
                 <div id="congratsScore">Top 5 Scores</div>
                 <br></br>
-                <ol id="leaderboard">
+                <table>
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
                   {leaderBoardItems}
-                </ol>
+                </table>
             </div>
         );
     }
