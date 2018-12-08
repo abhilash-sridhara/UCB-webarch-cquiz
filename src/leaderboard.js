@@ -66,7 +66,7 @@ class Display extends React.Component{
         return(
             <div id="congrats">
                 <div>
-                <img src="./images/trophy.jpg" alt="Doc face" width="auto" className="center"/>
+                <img src="./images/trophy.jpg" alt="Doc face" height="400px" className="center"/>
                 </div>
                 <div id="congratsh1">Congrats, {this.props.userName}!</div>
                 <br></br>
