@@ -24,6 +24,11 @@
     color:  #007acc;
 }
 
+.body li{
+    color:  #007acc;
+    font-size: 25px;
+}
+
 
 .main-article {
     width: 80%;

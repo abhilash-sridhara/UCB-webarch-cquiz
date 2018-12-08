@@ -9,7 +9,7 @@ import firebase from './firebase.js'
 //     let display = document.querySelector('#timer-area');
 //     setInterval(function () {
 //         display.textContent = '';
-//         }, 10);        
+//         }, 10);
 // }
 
 class Timer extends React.Component{
@@ -30,7 +30,7 @@ class Timer extends React.Component{
         }
         return(<div></div>);
     }
-    
+
 }
 class App extends React.Component {
   // This component contains the entirety of your application
@@ -43,7 +43,7 @@ class App extends React.Component {
   }
   pageNav(pageid){
    // console.log('App '+pageId);
-    this.setState((state) => ({pageId :pageid, userName : state.username}));    
+    this.setState((state) => ({pageId :pageid, userName : state.username}));
     //console.log(this.state.navPage);
     // this.child.pageNav(pageId);
     // this.child3.pageNav(pageId);
@@ -61,13 +61,13 @@ class App extends React.Component {
             console.log(c_arr[this.state.userName]);
             this.userScore = c_arr[this.state.userName].score;
         }
-            
+
     }).then(()=>{
         if(scr > this.userScore || this.userScore == 0){
             rsvpRef.child(this.state.userName).set({'name':this.state.userName,'score':scr});
         }
     })
-      this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});      
+      this.setState((state) =>{return{userName:state.userName, pageId:3, score:scr }});
   }
   render() {
     if(this.state.pageId==1){
@@ -83,7 +83,6 @@ class App extends React.Component {
         );
     }
     else if(this.state.pageId == 3){
-
         return(
             <div>
             <Display userName = {this.state.userName} score = {this.state.score}/>
@@ -105,8 +104,7 @@ class App extends React.Component {
 ReactDOM.render(
   <App pageId={1} />,
   document.getElementById('game-area'));
-  
+
   ReactDOM.render(
     <Timer disp_state = {false}></Timer>,
     document.getElementById('timer-area'));
-
