@@ -8,9 +8,21 @@ class LeaderBoardItem extends React.Component {
 
   render() {
     return (
+    // <table>
+    //   <tr>
+    //     <th>Username</th>
+    //     <th>Score</th>
+    //   </tr>
+    //   <tr>
+    //     <td>{this.props.name}</td>
+    //     <td>{this.props.score}</td>
+    //   </tr>
+    // </table>
+     <o1> 
       <li>
-        {this.props.name} has score {this.props.score}
+        {this.props.name}: {this.props.score}
       </li>
+    </o1>
     );
   }
 }
@@ -52,13 +64,20 @@ class Display extends React.Component{
         <LeaderBoardItem name={leader.name} score={leader.score} />
         );
         return(
-            <div className=".body">
-                <h1>Congratulations {this.props.userName} !!!!</h1>
-                <h2>You Scored {this.props.score}</h2>
-                <h2>Cuiz Leaderboard (Top 5 Scores)</h2>
-                <ul>
+            <div id="congrats">
+                <div>
+                <img src="./images/trophy.jpg" alt="Doc face" width="auto" className="center"/>
+                </div>
+                <div id="congratsh1">Congrats, {this.props.userName}!</div>
+                <br></br>
+                <div id="congratsh1">Your Score: {Math.round(this.props.score)}</div>
+                <br></br>
+                <br></br>
+                <div id="congratsScore">Top 5 Scores</div>
+                <br></br>
+                <ol id="leaderboard">
                   {leaderBoardItems}
-                </ul>
+                </ol>
             </div>
         );
     }
