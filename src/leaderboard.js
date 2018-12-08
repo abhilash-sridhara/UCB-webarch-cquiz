@@ -71,10 +71,13 @@ class Display extends React.Component{
                 <div id="congratsScore">Top 5 Scores</div>
                 <br></br>
                 <table>
-                <tr>
+                  <thead>
+                  <tr>
                     <th>Username</th>
                     <th>Score</th>
                 </tr>
+                  </thead>
+                
                 <tbody>
                 {leaderBoardItems}
                 </tbody>                  
