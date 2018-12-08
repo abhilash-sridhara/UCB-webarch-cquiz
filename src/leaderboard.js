@@ -75,7 +75,9 @@ class Display extends React.Component{
                     <th>Username</th>
                     <th>Score</th>
                 </tr>
-                  {leaderBoardItems}
+                <tbody>
+                {leaderBoardItems}
+                </tbody>                  
                 </table>
             </div>
         );
