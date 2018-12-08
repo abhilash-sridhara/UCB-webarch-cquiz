@@ -164,19 +164,14 @@
   font-size: 50px;
   text-align: center;
   color:#f59e1c;
+  font-weight: bold;
 }
 
-#congratsScore{
-    color:black;
-    text-align: left;
-    font-size: 25px;
-}
 
 #congratsScore{
-    color:black;
+    color: #f59e1c;
     text-align: left;
     font-size: 25px;
-    font-weight: bold;
 }
 
 
@@ -189,13 +184,18 @@ th {
 td {
     height: 50px;
     vertical-align: bottom;
+    background-color: whitesmoke;
   }
   th, td {
-    width: 180px;
+    width: 500px;
     padding: 15px;
-    text-align: left;
+    text-align: center;
     tr:nth-child(even) {background-color: #f2f2f2;};
   }
 
+  table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
 
 
