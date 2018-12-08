@@ -18,11 +18,11 @@ class LeaderBoardItem extends React.Component {
     //     <td>{this.props.score}</td>
     //   </tr>
     // </table>
-     <o1> 
+     <ol> 
       <li>
         {this.props.name}: {this.props.score}
       </li>
-    </o1>
+    </ol>
     );
   }
 }
