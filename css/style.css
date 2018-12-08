@@ -172,6 +172,7 @@
     color: #f59e1c;
     text-align: left;
     font-size: 25px;
+    margin-left:15%; 
 }
 
 
@@ -194,8 +195,8 @@ td {
   }
 
   table.center {
-    margin-left:auto; 
-    margin-right:auto;
+    margin-left:15%; 
+    margin-right:15%;
   }
 
 
