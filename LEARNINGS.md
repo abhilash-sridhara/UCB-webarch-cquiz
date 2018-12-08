@@ -8,7 +8,7 @@ CUIZ has three web pages. The first page contains a short introduction to the ga
 
 The figure below shows the different react components and how control flows between them.
 
-![alt tag](https://github.com/abhilash-sridhara/UCB-webarch-cquiz/blob/master/Algorithm.png)
+![alt tag](https://github.com/abhilash-sridhara/UCB-webarch-cquiz/blob/master/React components control flow.png)
 
 ##Web Technologies and place where they are used:
 1	CSS	
