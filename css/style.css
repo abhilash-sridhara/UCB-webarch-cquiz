@@ -172,4 +172,30 @@
     font-size: 25px;
 }
 
+#congratsScore{
+    color:black;
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+th {
+    text-align: left;
+    background-color: #f59e1c;
+    color: white;
+  }
+
+td {
+    height: 50px;
+    vertical-align: bottom;
+  }
+  th, td {
+    width: 180px;
+    padding: 15px;
+    text-align: left;
+    tr:nth-child(even) {background-color: #f2f2f2;};
+  }
+
+
 
