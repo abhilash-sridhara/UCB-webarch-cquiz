@@ -164,27 +164,18 @@
   font-size: 50px;
   text-align: center;
   color:#f59e1c;
+  font-weight: bold;
 }
 
 #congratsScore{
-    color:black;
-    text-align: center;
+    color:#f59e1c;
     font-size: 25px;
-    margin-left:15%; 
-}
-
-#congratsScore{
-    color:black;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
 }
 
 table{
     width: 100%;
 }
 th {
-    text-align: left;
     background-color: #f59e1c;
     color: white;
   }
@@ -197,16 +188,13 @@ td {
     padding: 15px;
     text-align: left;
   }
-    tbody :nth-child(even) {background-color: #f2f2f2};
+    tbody :nth-child(even) td{background-color: #f2f2f2};
   
 
-<<<<<<< HEAD
-=======
   table.center {
     margin-left:15%; 
     margin-right:15%;
   }
   
->>>>>>> 09cc30ae14396f39eb14ab44692f08cde5c897e2
 
 
